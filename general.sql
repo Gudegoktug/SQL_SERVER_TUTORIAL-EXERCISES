@@ -116,3 +116,18 @@ from departments
 select
 max(location_id)
 from departments
+
+--The following SQL statement selects the first five records from the "employess" table
+select 
+top 5 * 
+from employees
+
+--**Having**
+
+--The HAVING clause was added to SQL because the WHERE keyword cannot be used with aggregate functions.
+
+select job_id,
+count(first_name) as employees
+from employees
+group by job_id
+having job_id between 3 and 8
