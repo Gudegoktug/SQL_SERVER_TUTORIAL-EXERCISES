@@ -132,13 +132,3 @@ from employees
 group by job_id
 having job_id between 3 and 8
 
---NULL FUNCTION
---I am gonna make an example for how can you create function 
-
-go
-  create function agecalculator(@Birthdate datetime)
-    returns int 
-        begin 
-           return datediff(year,@Birthdate,getdate())
-              end
-go
