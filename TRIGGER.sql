@@ -1,4 +1,4 @@
---TRÝGGER
+--TRIGGER
 --There are two types of triggers:
 --1-DDL Trigger
 --2-DML Trigger
