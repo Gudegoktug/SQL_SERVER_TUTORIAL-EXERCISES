@@ -45,5 +45,3 @@ select sum(UnitsInStock),ProductName from Products where ProductID =3 group by P
 
 select City,count(EmployeeID) from Employees group by City
 
---14. Find the number of sales representatives in each city that contains at least 2 sales representatives. Order by the number of employees.
-select City,count(EmployeeID)  nos from Employees group by City having EmployeeID >= 2
