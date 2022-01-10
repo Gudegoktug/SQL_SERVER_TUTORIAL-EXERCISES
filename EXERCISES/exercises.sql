@@ -44,3 +44,34 @@ select sum(UnitsInStock),ProductName from Products where ProductID =3 group by P
 --13. Retrieve the number of employees in each city
 select City,count(EmployeeID) from Employees group by City
 
+--14.How many sales did my employees make on a product basis?
+select (e.FirstName + e.LastName) as fullname, p.ProductName, sum(od.Quantity), SUM(od.Quantity*od.UnitPrice)
+from Products p
+inner join [Order Details] od
+on p.ProductID=od.ProductID
+inner join Orders o
+on od.OrderID=o.OrderID
+inner join Employees e
+on o.EmployeeID=e.EmployeeID
+group by e.FirstName + e.LastName,p.ProductName
+order by 4 desc
+
+--15.Which is my most valuable customer?
+select top 1 c.CompanyName,SUM(od.Quantity) as adet,SUM(OD.Quantity*od.UnitPrice) as income
+from Customers c
+inner join orders o
+on c.CustomerID=o.CustomerID
+inner join [Order Details] od
+on o.OrderID=od.OrderID
+group by c.CompanyName
+order by 3 desc
+
+--16.How much did I sell to which countries?
+select c.Country,SUM(od.Quantity*od.UnitPrice)
+from Customers c
+inner join Orders o
+on c.CustomerID=o.CustomerID
+inner join [Order Details] od
+on o.OrderID=od.OrderID
+group by c.Country
+order by 2 desc
