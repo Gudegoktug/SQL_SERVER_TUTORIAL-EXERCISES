@@ -42,6 +42,5 @@ select Freight,OrderID,(Freight*1.1) as tax_included from Orders where Freight >
 select sum(UnitsInStock),ProductName from Products where ProductID =3 group by ProductName
 
 --13. Retrieve the number of employees in each city
-
 select City,count(EmployeeID) from Employees group by City
 
